@@ -1,0 +1,606 @@
+    /* AddDocuments container */
+    .addDocumentsContainer {
+        min-height: 100vh;
+        background-color: var(--background-color);
+        padding: var(--spacing-xl);
+        padding-bottom: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .addDocumentsContent {
+        max-width: 500px;
+        width: 100%;
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Conversion type */
+    .conversionType {
+        padding: var(--spacing-xl);
+        border-bottom: 1px solid var(--border-color);
+        text-align: center;
+    }
+    
+    .typeLabel {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-md);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .typeCard {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-lg);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-md);
+        transition: all var(--transition-normal);
+        cursor: default;
+        box-shadow: 0 4px 20px rgba(var(--primary-color-rgb), 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .typeCard::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+    
+    .typeIcon {
+        font-size: 2rem;
+        animation: floatIcon 3s ease-in-out infinite;
+    }
+    
+    @keyframes floatIcon {
+        0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        }
+        50% {
+        transform: translateY(-10px) rotate(5deg);
+        }
+    }
+    
+    .typeText {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+    
+    .typeArrow {
+        font-size: 1.5rem;
+        opacity: 0.8;
+        animation: pulseArrow 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulseArrow {
+        0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+        }
+        50% {
+        opacity: 1;
+        transform: scale(1.2);
+        }
+    }
+    
+    /* Upload section */
+    .uploadSection {
+        padding: var(--spacing-xl);
+        text-align: center;
+    }
+    
+    .uploadTitle {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .uploadSubtitle {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-xl);
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Upload card */
+    .uploadCard {
+        border: 2px dashed var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-xl);
+        transition: all var(--transition-normal);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--background-color);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .uploadCard:hover {
+        border-color: var(--primary-color);
+        background-color: rgba(var(--primary-color-rgb), 0.03);
+        transform: translateY(-2px);
+    }
+    
+    .uploadCard.dragging {
+        border-color: var(--primary-color);
+        background-color: rgba(var(--primary-color-rgb), 0.1);
+        transform: scale(1.02);
+    }
+    
+    .uploadIcon {
+        font-size: 4rem;
+        color: var(--text-tertiary);
+        margin-bottom: var(--spacing-md);
+        transition: all var(--transition-normal);
+    }
+    
+    .uploadCard:hover .uploadIcon {
+        color: var(--primary-color);
+        animation: bounceIcon 0.6s ease;
+    }
+    
+    @keyframes bounceIcon {
+        0%, 100% {
+        transform: scale(1);
+        }
+        50% {
+        transform: scale(1.1);
+        }
+    }
+    
+    .uploadButton {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: var(--radius-md);
+        padding: var(--spacing-md) var(--spacing-xl);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .uploadButton::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+    
+    .uploadButton:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(var(--primary-color-rgb), 0.3);
+    }
+    
+    .uploadButton:hover::before {
+        left: 100%;
+    }
+    
+    .fileInput {
+        display: none;
+    }
+    
+    /* Selected files */
+    .selectedFiles {
+        margin-top: var(--spacing-xl);
+        text-align: left;
+    }
+    
+    .filesTitle {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-md);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .filesList {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        max-height: 200px;
+        overflow-y: auto;
+        padding-right: var(--spacing-sm);
+    }
+    
+    /* Custom scrollbar for files list */
+    .filesList::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    .filesList::-webkit-scrollbar-track {
+        background: var(--background-color);
+        border-radius: var(--radius-sm);
+    }
+    
+    .filesList::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: var(--radius-sm);
+    }
+    
+    .fileItem {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+        background-color: var(--background-color);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border-color);
+        transition: all var(--transition-fast);
+    
+    }
+
+    
+
+    .fileIcon {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-sm);
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.25rem;
+        animation: pulseIcon 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulseIcon {
+        0%, 100% {
+        transform: scale(1);
+        }
+        50% {
+        transform: scale(1.05);
+        }
+    }
+    
+    .fileInfo {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .fileName {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .fileSize {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-top: 2px;
+    }
+    
+    .removeButton {
+        background: none;
+        border: none;
+        color: var(--text-tertiary);
+        cursor: pointer;
+        padding: var(--spacing-xs);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all var(--transition-fast);
+    }
+    
+    .removeButton:hover {
+        color: #f44336;
+        background-color: rgba(244, 67, 54, 0.1);
+        transform: rotate(90deg);
+    }
+    
+    /* Convert button */
+    .convertButton {
+        margin-top: var(--spacing-xl);
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border: none;
+        border-radius: var(--radius-md);
+        padding: var(--spacing-lg) var(--spacing-xl);
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .convertButton:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(var(--primary-color-rgb), 0.4);
+    }
+    
+    .convertButton:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .convertButton::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.6s ease;
+    }
+    
+    .convertButton:hover::before {
+        left: 100%;
+    }
+    
+    /* Progress animation */
+    .conversionAnimation {
+        padding: var(--spacing-xl);
+        text-align: center;
+    }
+    
+    .animationContainer {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto var(--spacing-xl);
+    }
+    
+    .imageCircle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px dashed var(--primary-color);
+        border-radius: 50%;
+        animation: rotate 10s linear infinite;
+    }
+    
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .pdfIcon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        color: var(--primary-color);
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        }
+        50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+        }
+    }
+    
+    .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120px;
+        height: 120px;
+        transform: translate(-50%, -50%);
+    }
+    
+    .spinnerSegment {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: var(--primary-color);
+        animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .progressText {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .progressSubtext {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+    
+    /* Result section */
+    .resultSection {
+        padding: var(--spacing-xl);
+        text-align: center;
+        animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+        from {
+        opacity: 0;
+        transform: translateY(20px);
+        }
+        to {
+        opacity: 1;
+        transform: translateY(0);
+        }
+    }
+    
+    .successIcon {
+        font-size: 4rem;
+        color: #4caf50;
+        margin-bottom: var(--spacing-md);
+        animation: successBounce 0.6s ease;
+    }
+    
+    @keyframes successBounce {
+        0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+        }
+        40% {
+        transform: translateY(-20px);
+        }
+        60% {
+        transform: translateY(-10px);
+        }
+    }
+    
+    .resultTitle {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .resultFile {
+        background-color: var(--background-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-lg);
+        margin: var(--spacing-lg) 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    .resultFlex{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .resultFileName {
+        flex: 1;
+        text-align: left;
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 0.875rem;
+    }
+    
+    .downloadButton {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: var(--radius-md);
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .downloadButton:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+    }
+    
+    .newConversionButton {
+        margin-top: var(--spacing-lg);
+        background: none;
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .newConversionButton:hover {
+        background-color: var(--hover-color);
+        border-color: var(--primary-color);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .addDocumentsContainer {
+        padding: var(--spacing-md);
+        padding-bottom: 90px;
+        }
+        
+        .addDocumentsContent {
+        border-radius: var(--radius-lg);
+        }
+        
+        .documentsHeader,
+        .conversionType,
+        .uploadSection {
+        padding: var(--spacing-lg);
+        }
+        
+        .animationContainer {
+        width: 150px;
+        height: 150px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .documentsTitle {
+        font-size: 1.5rem;
+        }
+        
+        .typeText {
+        font-size: 1rem;
+        }
+        
+        .uploadIcon {
+        font-size: 3rem;
+        }
+    }

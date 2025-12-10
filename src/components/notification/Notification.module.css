@@ -1,0 +1,18 @@
+.toast {
+    position: fixed;          /* viewport bo'yicha joylashadi */
+    top: 20px;                /* tepada 20px */
+    left: 50%;                /* markazga */
+    transform: translateX(-50%);
+    z-index: 9999;            /* boshqa elementlar ostida qolmasin */
+    width: 300px;
+    transition: all 0.3s ease;
+  }
+  
+  .stack {
+    width: 100%;              /* stack kengligi toast kengligi bilan mos bo‘lsin */
+  }
+  
+  .alert {
+    width: 100%;              /* Alert ham stack bilan mos bo‘lsin */
+  }
+  

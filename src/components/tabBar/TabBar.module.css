@@ -1,0 +1,290 @@
+/* TabBar container - Using Flexbox */
+.tabBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+    height: 70px;
+  }
+  
+  /* First method: Using position relative/absolute for plus button */
+  .tabItemsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Tab item */
+  .tabItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    max-width: 100px;
+  }
+  
+  .tabItem:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .tabItem.active {
+    color: var(--primary-color);
+  }
+  
+  /* Tab icon */
+  .tabIcon {
+    font-size: 22px;
+    margin-bottom: 4px;
+    transition: transform 0.3s ease;
+  }
+  
+  .tabItem.active .tabIcon {
+    transform: translateY(-2px);
+  }
+  
+  /* Tab label */
+  .tabLabel {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    opacity: 0.7;
+  }
+  
+  .tabItem.active .tabLabel {
+    opacity: 1;
+    font-weight: 600;
+  }
+  
+  /* Plus button in the middle - Method 1: Absolute positioning */
+  .plusButton {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: 4px solid var(--surface-color);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(var(--primary-color-rgb), 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+  }
+  
+  .plusButton:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 8px 30px rgba(var(--primary-color-rgb), 0.4);
+  }
+  
+  .plusIcon {
+    font-size: 28px;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .plusButton:hover .plusIcon {
+    transform: rotate(90deg);
+  }
+  
+  /* Animation for plus button */
+  @keyframes float {
+    0%, 100% {
+      transform: translate(-50%, -50%);
+    }
+    50% {
+      transform: translate(-50%, -55%);
+    }
+  }
+  
+  .plusButton {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Method 2: Using Grid (alternative) */
+  .tabBarGrid {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 12px 16px;
+    z-index: 1000;
+    height: 70px;
+  }
+  
+  .tabLeft, .tabRight {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .tabLeft {
+    justify-content: flex-start;
+  }
+  
+  .tabRight {
+    justify-content: flex-end;
+  }
+  
+  /* Plus button for Grid method */
+  .plusButtonGrid {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: 4px solid var(--surface-color);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(var(--primary-color-rgb), 0.3);
+    transition: all 0.3s ease;
+    justify-self: center;
+    margin-top: -25px;
+  }
+  
+  .plusButtonGrid:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(var(--primary-color-rgb), 0.4);
+  }
+  
+  /* Method 3: Flex with space-between and adjusted margins */
+  .tabBarFlex {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    z-index: 1000;
+    height: 70px;
+  }
+  
+  .tabItemFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    flex: 1;
+  }
+  
+  .plusButtonFlex {
+    margin: 0 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: 4px solid var(--surface-color);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(var(--primary-color-rgb), 0.3);
+    transition: all 0.3s ease;
+    margin-top: -25px;
+  }
+  
+  /* Active indicator */
+  .activeIndicator {
+    position: absolute;
+    top: -6px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .tabItem.active .activeIndicator {
+    opacity: 1;
+  }
+  
+  /* For iPhone notch and safe areas */
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .tabBar,
+    .tabBarGrid,
+    .tabBarFlex {
+      padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+    .tabBar,
+    .tabBarGrid,
+    .tabBarFlex {
+      padding: 10px 12px;
+      height: 65px;
+    }
+    
+    .tabItem {
+      padding: 6px 10px;
+      max-width: 80px;
+    }
+    
+    .tabIcon {
+      font-size: 20px;
+    }
+    
+    .tabLabel {
+      font-size: 10px;
+    }
+    
+    .plusButton,
+    .plusButtonGrid,
+    .plusButtonFlex {
+      width: 55px;
+      height: 55px;
+    }
+    
+    .plusIcon {
+      font-size: 24px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .tabBar,
+    .tabBarGrid,
+    .tabBarFlex {
+      max-width: 450px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 20px 20px 0 0;
+      bottom: 20px;
+      border: 1px solid var(--border-color);
+    }
+  } 

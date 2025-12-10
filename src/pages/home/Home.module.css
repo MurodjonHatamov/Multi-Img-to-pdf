@@ -1,0 +1,305 @@
+.container {
+    min-height: 100vh;
+    background-color: var(--background-color);
+    padding: var(--spacing-xl);
+  }
+  
+  .content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Profile section */
+  .profileSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .profileImageContainer {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg);
+    border: 4px solid var(--primary-color);
+  }
+  
+  .profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profileInfo {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .profileName {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  /* MUI Button customization */
+  .profileId {
+    background-color: var(--background-color) !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--spacing-sm) var(--spacing-md) !important;
+    font-size: 1rem !important;
+    text-transform: none !important;
+    transition: all var(--transition-fast) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--spacing-sm) !important;
+  }
+  
+  .profileId:hover {
+    background-color: var(--hover-color) !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  .copyIcon {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+  }
+  
+  /* Theme toggle section */
+  .themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--surface-color);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .themeTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  
+  .themeIcons {
+    background-color: var(--background-color);
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  
+  .themeIcons:hover {
+    background-color: var(--hover-color);
+    transform: rotate(15deg);
+  }
+  
+  /* Hujatlar soni */
+  .documentsSection {
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--surface-color);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+  }
+  
+  .documentHeder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .documentsTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  
+  .documentsCount {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'SF Mono', Monaco, monospace;
+  }
+  
+  .documentsButton {
+    width: 100%;
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--spacing-sm) var(--spacing-lg) !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    transition: all var(--transition-fast) !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .documentsButton:hover {
+    background-color: var(--secondary-color) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 8px var(--shadow-color) !important;
+  }
+  
+  /* FAQ Section */
+  .faqSection {
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--surface-color);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  
+  .faqSection:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+    border-color: var(--primary-color);
+  }
+  
+  .faqFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .faqIcon {
+    font-size: 1.5rem;
+    color: var(--text-tertiary);
+    transition: all var(--transition-fast);
+  }
+  
+  .faqSection:hover .faqIcon {
+    color: var(--primary-color);
+    transform: translateX(5px);
+  }
+  
+  /* FAQ Lists */
+  .faqLists {
+    margin-top: var(--spacing-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .faqLists.open {
+    max-height: 500px;
+  }
+  
+  .faqItem {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+  }
+  
+  .faqItem:last-child {
+    border-bottom: none;
+  }
+  
+  .faqItem:hover {
+    background-color: var(--hover-color);
+    
+  }
+  
+  .faqQuestion {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  
+  .faqAnswer {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  
+  /* Notification styles */
+  .notificationContainer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .container {
+      padding: var(--spacing-md);
+    }
+    
+    .profileSection {
+      padding: 0;
+    }
+    
+    .profileImageContainer {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .themeTitle {
+      font-size: 1rem;
+    }
+    
+    .profileName {
+      font-size: 1.5rem;
+    }
+    
+    .documentsCount {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profileSection {
+      padding: 0;
+    }
+    
+    .profileImageContainer {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .profileName {
+      font-size: 1.25rem;
+    }
+    
+    .themeTitle {
+      font-size: 0.875rem;
+    }
+    
+    .faqQuestion {
+      font-size: 0.8rem;
+    }
+    
+    .faqAnswer {
+      font-size: 0.7rem;
+    }
+  }
