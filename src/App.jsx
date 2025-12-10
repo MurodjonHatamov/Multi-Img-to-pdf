@@ -7,7 +7,7 @@ import Documents from './pages/documents/Documents'
 import AddDocuments from './pages/addDocuments/AddDocuments'
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
 // darkMode holati
 useEffect(() => {
