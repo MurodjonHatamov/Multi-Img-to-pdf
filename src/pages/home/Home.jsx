@@ -69,11 +69,21 @@ function Home({ setTheme, theme }) {
   const toggleFaq = () => {
     setIsFaqOpen(!isFaqOpen);
   };
-  const tg = window.Telegram.WebApp;
-  const user = tg.initDataUnsafe.user;
-  
+  const [user, setUser] = useState(null);
 
-  
+  useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      const tg = window.Telegram.WebApp;
+
+      tg.ready();           // Telegramga signal
+      tg.expand();          // Full screen (ixtiyoriy)
+
+      const tgUser = tg.initDataUnsafe?.user;
+      setUser(tgUser);
+    } else {
+      console.log("Telegram WebApp emas");
+    }
+  }, []);
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -101,7 +111,15 @@ function Home({ setTheme, theme }) {
               className={styles.profileId}   
               variant="outlined"
             >
-              <p>ID: {user.id}</p>
+               {user ? (
+        <>
+          <h1>Salom, {user.first_name} 👋</h1>
+          <p>Telegram ID: {user.id}</p>
+          <p>Username: @{user.username}</p>
+        </>
+      ) : (
+        <p>Iltimos, ilovani Telegram ichida oching</p>
+      )}
               {
                 isCopied ? 
                   <HiOutlineCheck className={styles.copyIcon}/> 
