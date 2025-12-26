@@ -69,7 +69,11 @@ function Home({ setTheme, theme }) {
   const toggleFaq = () => {
     setIsFaqOpen(!isFaqOpen);
   };
+  const tg = window.Telegram.WebApp;
+  const user = tg.initDataUnsafe.user;
+  
 
+  
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -97,7 +101,7 @@ function Home({ setTheme, theme }) {
               className={styles.profileId}   
               variant="outlined"
             >
-              <p>ID: 123456789</p>
+              <p>ID: {user.id}</p>
               {
                 isCopied ? 
                   <HiOutlineCheck className={styles.copyIcon}/> 

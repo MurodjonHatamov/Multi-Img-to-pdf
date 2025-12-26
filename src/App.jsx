@@ -21,6 +21,10 @@ const toggleTheme = () => {
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
 };
+
+
+
+
   return (
     <>  
   <BrowserRouter>
