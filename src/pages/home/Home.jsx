@@ -102,7 +102,7 @@ function Home({ setTheme, theme }) {
           </div>
           
           <div className={styles.profileInfo}>
-            <h3 className={styles.profileName}>Hatamov Murodjon</h3>
+            <h3 className={styles.profileName}>{user.first_name}</h3>
           </div>
           
           <Stack spacing={2} direction="row">
@@ -111,15 +111,7 @@ function Home({ setTheme, theme }) {
               className={styles.profileId}   
               variant="outlined"
             >
-               {user ? (
-        <>
-          <h1>Salom, {user.first_name} 👋</h1>
-          <p>Telegram ID: {user.id}</p>
-          <p>Username: @{user.username}</p>
-        </>
-      ) : (
-        <p>Iltimos, ilovani Telegram ichida oching</p>
-      )}
+              <p>{user.id}</p>
               {
                 isCopied ? 
                   <HiOutlineCheck className={styles.copyIcon}/> 
