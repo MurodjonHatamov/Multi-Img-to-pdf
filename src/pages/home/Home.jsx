@@ -11,6 +11,8 @@ import Notification from '../../components/notification/Notification';
 function Home({ setTheme, theme }) {
   const [isCopied, setIsCopied] = useState(false);
   const [isFaqOpen, setIsFaqOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
   const navigate = useNavigate();
 
   // FAQ ma'lumotlari
@@ -55,7 +57,7 @@ function Home({ setTheme, theme }) {
 
   // id copy qilish funksiyasi
   const copyToClipboard = () => {
-    navigator.clipboard.writeText('123456789');
+    navigator.clipboard.writeText(user?.id);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
@@ -69,7 +71,6 @@ function Home({ setTheme, theme }) {
   const toggleFaq = () => {
     setIsFaqOpen(!isFaqOpen);
   };
-  const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (window.Telegram?.WebApp) {
